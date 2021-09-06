@@ -1,4 +1,5 @@
 import React from "react";
+import "./Coin.css";
 
 const Coin = ({
   name,
@@ -25,9 +26,7 @@ const Coin = ({
           ) : (
             <p className="coint-percent green">{priceChange.toFixed(2)}%</p>
           )}
-          <p className="coin-marketcap">
-            Mkt Cap: ${marketcap.toLocaleString()}
-          </p>
+          <p className="coin-marketcap">${marketcap.toLocaleString()}</p>
         </div>
       </div>
     </div>
