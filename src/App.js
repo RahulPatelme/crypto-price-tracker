@@ -4,6 +4,7 @@ import "./App.css";
 
 function App() {
   const [coins, setCoins] = useState([]);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     axios
@@ -16,6 +17,15 @@ function App() {
       })
       .catch((error) => alert(error));
   }, []);
+
+  const handleChange = (e) => {
+    setSearch(e.target.value);
+  };
+
+  const filteredCoins = coins.filter((coin) =>
+    coin.name.toLowerCase().includes(search.toLowerCase())
+  );
+
   return (
     <div className="crypto-coin-app">
       <div className="crypto-coin-search">
@@ -25,6 +35,7 @@ function App() {
             type="text"
             placeholder="Search"
             className="crypto-coin-input"
+            onChange={handleChange}
           />
         </form>
       </div>
